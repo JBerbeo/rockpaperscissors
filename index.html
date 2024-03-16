@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+let computerResponse = " ";
+let playerSelection = prompt("What will you play?");
+let RandomInt = getRandomInt (1,3);
+let Result = " ";
+let Round = 0;
+
+function getRandomInt (min,max){
+    return Math.floor (Math.random()*(max-min + 1) + min)
+}
+
+function getComputerChoice () {
+
+   if (RandomInt==1){
+    computerResponse = "Rock";
+   }
+   else if (RandomInt ==2){
+    computerResponse = "Paper";
+   }
+   else {
+    computerResponse = "Scissors";
+   }
+   return computerResponse;
+  
+    }
+    console.log(computerResponse);
+
+let computerChoice = getComputerChoice();
+console.log(computerChoice);
+
+function playRound (playerSelection, computerChoice){
+
+    if(computerChoice== "Rock"){
+        if(playerSelection == "Rock"){
+            Result = "No one wins. It's a tie!";
+        }
+        else if (playerSelection == "Paper") {
+            Result = "You win! Paper beats Rock!"
+        }
+        else {
+            Result = "You Loose! Rock beats Scissors"
+        }
+    }
+
+    if(computerChoice== "Paper"){
+        if(playerSelection == "Rock"){
+            Result = "You Loose! Paper beats Rock ";
+        }
+        else if (playerSelection == "Paper") {
+            Result = "No one wins. It's a tie!"
+        }
+        else {
+            Result = "You win! Scissors beats Paper!"
+        }
+    }
+
+    if(computerChoice== "Scissors"){
+        if(playerSelection == "Rock"){
+            Result = "You Win! Rock beats Scissors!";
+        }
+        else if (playerSelection == "Paper") {
+            Result = "You Loose. Scissors cut Paper"
+        }
+        else {
+            Result = "No one wins. It's a tie!"
+        }
+    }
+    +Round;
+    return Result;
+
+}
+
+console.log(playRound(playerSelection, computerChoice));
+
+function playGame (){
+ 
+    if (Round == 0, Round<5, Round++){
+        playRound (playerSelection,computerChoice);
+        console.log (playGame());
+    }
+    
+    
+    
+}
+
+
+
+
+
+</script>
+
+
+</html>
